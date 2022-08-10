@@ -288,7 +288,8 @@
         img.crossOrigin = crossOrigin;
       }
 
-      img.src = url;
+      var timestamp = new Date().getTime();
+      img.src = url + '?t=' + timestamp;
     },
 
     /**
