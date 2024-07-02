@@ -651,8 +651,13 @@ fabric.Collection = {
         img.crossOrigin = crossOrigin;
       }
 
-      var timestamp = new Date().getTime();
-      img.src = url + '?t=' + timestamp;
+      if (url.indexOf('data') !== 0) {
+        var timestamp = new Date().getTime();
+        img.src = url + '?t=' + timestamp;
+      } else {
+        img.src = url;
+      }
+
     },
 
     /**
