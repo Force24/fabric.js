@@ -295,10 +295,10 @@ fabric.Collection = {
                 callback && callback.call(context, null, true);
                 img = img.onload = img.onerror = null;
             };
-            if (url.indexOf("data") !== 0 && crossOrigin) {
-                img.crossOrigin = crossOrigin;
-            }
             if (url.indexOf("data") !== 0) {
+                if (crossOrigin) {
+                    img.crossOrigin = crossOrigin;
+                }
                 var timestamp = new Date().getTime();
                 img.src = url + "?t=" + timestamp;
             } else {

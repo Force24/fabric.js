@@ -647,11 +647,13 @@ fabric.Collection = {
       // https://github.com/kangax/fabric.js/commit/d0abb90f1cd5c5ef9d2a94d3fb21a22330da3e0a#commitcomment-4513767
       // see https://code.google.com/p/chromium/issues/detail?id=315152
       //     https://bugzilla.mozilla.org/show_bug.cgi?id=935069
-      if (url.indexOf('data') !== 0 && crossOrigin) {
-        img.crossOrigin = crossOrigin;
-      }
 
       if (url.indexOf('data') !== 0) {
+
+        if (crossOrigin) {
+          img.crossOrigin = crossOrigin;
+        }
+
         var timestamp = new Date().getTime();
         img.src = url + '?t=' + timestamp;
       } else {
