@@ -295,7 +295,7 @@ fabric.Collection = {
                 callback && callback.call(context, null, true);
                 img = img.onload = img.onerror = null;
             };
-            if (url.indexOf("data") !== 0 || url.indexOf("blob") !== 0) {
+            if (url.indexOf("data") !== 0 && url.indexOf("blob") !== 0) {
                 if (crossOrigin) {
                     img.crossOrigin = crossOrigin;
                 }

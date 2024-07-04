@@ -285,7 +285,7 @@
       // see https://code.google.com/p/chromium/issues/detail?id=315152
       //     https://bugzilla.mozilla.org/show_bug.cgi?id=935069
 
-      if (url.indexOf('data') !== 0 || url.indexOf('blob') !== 0) {
+      if (url.indexOf('data') !== 0 && url.indexOf('blob') !== 0) {
 
         if (crossOrigin) {
           img.crossOrigin = crossOrigin;
