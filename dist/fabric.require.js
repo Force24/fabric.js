@@ -296,13 +296,13 @@ fabric.Collection = {
                 img = img.onload = img.onerror = null;
             };
             if (url.indexOf("data") !== 0 && url.indexOf("blob") !== 0) {
-                if (crossOrigin) {
-                    img.crossOrigin = crossOrigin;
-                }
                 var timestamp = new Date().getTime();
                 img.src = url + "?t=" + timestamp;
             } else {
                 img.src = url;
+            }
+            if (crossOrigin && url.indexOf("data") !== 0) {
+                img.crossOrigin = crossOrigin;
             }
         },
         enlivenObjects: function(objects, callback, namespace, reviver) {

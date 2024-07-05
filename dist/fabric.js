@@ -649,15 +649,14 @@ fabric.Collection = {
       //     https://bugzilla.mozilla.org/show_bug.cgi?id=935069
 
       if (url.indexOf('data') !== 0 && url.indexOf('blob') !== 0) {
-
-        if (crossOrigin) {
-          img.crossOrigin = crossOrigin;
-        }
-
         var timestamp = new Date().getTime();
         img.src = url + '?t=' + timestamp;
       } else {
         img.src = url;
+      }
+
+      if (crossOrigin && url.indexOf('data') !== 0) {
+        img.crossOrigin = crossOrigin;
       }
 
     },
